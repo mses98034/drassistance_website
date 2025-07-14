@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+將以下內容添加到您的 iOS App 的 Info.plist 文件中
+路徑：ios/Runner/Info.plist
+-->
+
+<!-- 加密聲明：應用程式使用非免除加密 -->
+<key>ITSAppUsesNonExemptEncryption</key>
+<true/>
+
+<!-- 應用程式類別：醫療應用 -->
+<key>LSApplicationCategoryType</key>
+<string>public.app-category.medical</string>
+
+<!-- 支援的設備方向 -->
+<key>UISupportedInterfaceOrientations</key>
+<array>
+    <string>UIInterfaceOrientationPortrait</string>
+    <string>UIInterfaceOrientationLandscapeLeft</string>
+    <string>UIInterfaceOrientationLandscapeRight</string>
+</array>
+
+<!-- 麥克風權限說明（語音轉文字功能） -->
+<key>NSMicrophoneUsageDescription</key>
+<string>此應用程式需要存取麥克風以提供語音轉文字功能，幫助醫護人員快速建立任務記錄。</string>
+
+<!-- 語音識別權限說明 -->
+<key>NSSpeechRecognitionUsageDescription</key>
+<string>此應用程式使用語音識別功能將您的語音轉換為文字任務，提升工作效率。</string>
