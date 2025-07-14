@@ -8,7 +8,7 @@
     <meta name="keywords" content="醫護助手,醫療應用,護理工作,醫師助理,語音識別,醫療科技">
     
     <!-- Favicon -->
-    <link rel="icon" href="../icon.png" type="image/png">
+    <link rel="icon" href="icon.png" type="image/png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -375,7 +375,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 32px;
+            border-radius: 30px;
         }
 
         .app-icon-large {
@@ -515,7 +515,7 @@
 
         /* Features Showcase */
         .features-showcase {
-            margin: 4rem 0;
+            margin: 2rem 0;
         }
 
         .device-showcase {
@@ -533,12 +533,12 @@
 
         .device-frame {
             width: 220px;
-            height: 380px;
+            height: 400px;
             background: linear-gradient(135deg, var(--slate-100), white);
-            border-radius: 35px;
+            border-radius: 30px;
             border: 6px solid var(--slate-300);
             position: relative;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 1.0rem;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
@@ -553,7 +553,7 @@
             width: calc(100% - 12px);
             height: calc(100% - 12px);
             object-fit: cover;
-            border-radius: 29px;
+            border-radius: 20px;
             margin: 6px;
         }
 
@@ -902,44 +902,36 @@
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .footer-section h4 {
-            color: white;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-section ul li a {
+        .footer-links a {
             color: var(--slate-400);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer-section ul li a:hover {
+        .footer-links a:hover {
             color: var(--primary-400);
         }
 
         .footer-bottom {
             border-top: 1px solid var(--slate-700);
-            margin-top: 2rem;
             padding-top: 2rem;
             text-align: center;
             color: var(--slate-500);
         }
 
         /* Responsive Design */
+        
+        /* Tablet (iPad) */
         @media (max-width: 1024px) and (min-width: 769px) {
             .device-showcase {
                 grid-template-columns: repeat(2, 1fr);
@@ -950,21 +942,79 @@
                 width: 200px;
                 height: 350px;
             }
+
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
         }
 
+        /* Mobile */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 16px 16px;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                display: block;
+                border-bottom: 1px solid var(--slate-100);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
             }
 
             .mobile-menu-btn {
                 display: block;
+                padding: 0.75rem;
+                font-size: 1.25rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .nav-container {
+                padding: 0.75rem 1rem;
+                position: relative;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .hero {
+                padding: 6rem 1rem 3rem;
             }
 
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 3rem;
+                gap: 2rem;
             }
 
             .hero-content {
@@ -972,12 +1022,26 @@
             }
 
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
                 align-items: center;
+                gap: 0.75rem;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                min-height: 48px;
             }
 
             .hero-stats {
@@ -985,13 +1049,27 @@
                 gap: 1rem;
             }
 
-            .security-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .phone-mockup {
+                width: 240px;
+                height: 420px;
+            }
+
+            .section {
+                padding: 3rem 1rem;
             }
 
             .section-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .download-buttons {
@@ -999,15 +1077,58 @@
                 align-items: center;
             }
 
+            .download-btn {
+                width: 100%;
+                max-width: 280px;
+                padding: 1rem 1.5rem;
+                min-height: 48px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                padding: 0.75rem;
+                font-size: 1rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
             /* Features Showcase Mobile */
+            .features-showcase {
+                margin: 2rem 0;
+            }
+
             .device-showcase {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
+                padding: 0 1rem;
+            }
+
+            .showcase-device {
+                max-width: 300px;
+                margin: 0 auto;
             }
 
             .device-frame {
-                width: 250px;
-                height: 400px;
+                width: 100%;
+                max-width: 280px;
+                height: 480px;
+                margin: 0 auto 1.5rem;
+            }
+
+            .device-info h4 {
+                font-size: 1.125rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .device-info p {
+                font-size: 0.875rem;
+                line-height: 1.6;
             }
 
             .device-placeholder {
@@ -1028,12 +1149,51 @@
             }
 
             .highlight-item {
-                padding: 1rem;
+                padding: 1.25rem;
+                text-align: left;
             }
 
             .highlight-icon {
-                width: 40px;
-                height: 40px;
+                width: 44px;
+                height: 44px;
+                font-size: 1.125rem;
+            }
+
+            .highlight-text h5 {
+                font-size: 0.95rem;
+            }
+
+            .highlight-text p {
+                font-size: 0.825rem;
+            }
+        }
+
+        /* Small Mobile */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+
+            .device-frame {
+                max-width: 260px;
+                height: 450px;
+            }
+
+            .nav-container {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .section {
+                padding: 2.5rem 0.75rem;
+            }
+
+            .device-showcase {
+                padding: 0 0.5rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 0.875rem 1.25rem;
             }
         }
 
@@ -1079,15 +1239,17 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="../icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
+                <img src="icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
                 <span>Doctor Assistance</span>
             </a>
             
             <ul class="nav-links">
-                <li><a href="#features">功能特色</a></li>
-                <li><a href="#security">安全性</a></li>
-                <li><a href="#download">下載</a></li>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="index.html#features">功能特色</a></li>
+                <li><a href="security.html">安全性</a></li>
                 <li><a href="support.html">技術支援</a></li>
+                <li><a href="privacy-policy.html">隱私政策</a></li>
+                <li><a href="terms.html">服務條款</a></li>
             </ul>
             
             <button class="mobile-menu-btn">☰</button>
@@ -1106,15 +1268,15 @@
                     <span style="background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">就在掌中</span>
                 </h1>
                 <p class="hero-subtitle">
-                    DRAssistance 是專為醫護人員設計的智能工作助理，整合AI 語音識別和醫療級加密技術，
+                    Doctor Assistance 是專為醫護人員設計的智能工作助理，整合AI 語音識別和醫療級加密技術，
                     讓您的醫護工作更高效、更安全、更智能。
                 </p>
                 <div class="hero-buttons">
                     <a href="#download" class="btn btn-primary">
-                        📱 免費下載
+                        免費下載
                     </a>
                     <a href="#features" class="btn btn-secondary">
-                        ▶️ 觀看演示
+                        觀看演示
                     </a>
                 </div>
                 
@@ -1125,11 +1287,11 @@
                 <div class="phone-mockup float-animation">
                     <div class="phone-screen">
                         <!-- 實際截圖將放在這裡 -->
-                        <img src="screenshots/app-main-screen.png" alt="DRAssistance 主畫面截圖" class="screenshot-img" style="display: none;">
+                        <img src="screenshots/app-main-screen.png"  class="app-icon-large" style="display: none;">
                         
                         <!-- 暫時的佔位符，截圖就緒後隱藏 -->
                         <div class="screenshot-placeholder">
-                            <div class="app-icon-large">🏥</div>
+                            <img src="icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
                             <h3 style="color: var(--slate-900); margin-bottom: 0.5rem;">Doctor Assistance</h3>
                             <p style="color: var(--slate-600); font-size: 0.875rem;">醫護智能助理</p>
                             <div style="margin-top: 1.5rem; padding: 1rem; background: var(--primary-50); border-radius: 12px; width: 100%;">
@@ -1138,7 +1300,6 @@
                                     <div style="width: 66%; height: 100%; background: var(--primary-500); border-radius: 2px;"></div>
                                 </div>
                             </div>
-                            <p style="color: var(--slate-500); font-size: 0.75rem; margin-top: 1rem;">📸 實際截圖預留位置</p>
                         </div>
                     </div>
                 </div>
@@ -1162,7 +1323,7 @@
                 <div class="section-badge">核心功能</div>
                 <h2 class="section-title">智能醫護生態系統</h2>
                 <p class="section-subtitle">
-                    透過實際操作畫面，體驗 DRAssistance 的強大功能
+                    透過實際操作畫面，體驗 Doctor Assistance 的強大功能
                 </p>
             </div>
             
@@ -1373,7 +1534,7 @@
                 </div>
                 <h2 class="section-title">開啟您的智能醫護之旅</h2>
                 <p class="section-subtitle">
-                    免費下載 DRAssistance 應用程式，體驗革命性的醫護工作管理服務
+                    免費下載 Doctor Assistance 應用程式，體驗革命性的醫護工作管理服務
                 </p>
                 
                 <div class="download-buttons">
@@ -1403,44 +1564,13 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-                    <img src="../icon.png" alt="DRAssistance Icon" style="width: 32px; height: 32px; border-radius: 8px;">
-                    <span style="font-size: 1.25rem; font-weight: 800; color: white;">Doctor Assistance</span>
-                </div>
-                <p style="color: var(--slate-400); line-height: 1.6;">
-                    專為醫護人員設計的智能工作助理，讓醫護工作更高效、更安全、更智能。
-                </p>
-            </div>
-            
-            <div class="footer-section">
-                <h4>產品</h4>
-                <ul>
-                    <li><a href="features.html">功能特色</a></li>
-                    <li><a href="security.html">安全性</a></li>
-                    <li><a href="#download">下載應用</a></li>
-                    <li><a href="support.html">系統需求</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>支援</h4>
-                <ul>
-                    <li><a href="support.html">技術支援</a></li>
-                    <li><a href="support.html">使用說明</a></li>
-                    <li><a href="support.html">常見問題</a></li>
-                    <li><a href="support.html">聯絡我們</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-section">
-                <h4>法律條款</h4>
-                <ul>
-                    <li><a href="privacy-policy.html">隱私政策</a></li>
-                    <li><a href="terms.html">服務條款</a></li>
-                    <li><a href="terms.html">使用者協議</a></li>
-                    <li><a href="privacy-policy.html">醫療免責聲明</a></li>
-                </ul>
+            <div class="footer-links">
+                <a href="index.html">首頁</a>
+                <a href="index.html#features">功能特色</a>
+                <a href="security.html">安全性</a>
+                <a href="support.html">技術支援</a>
+                <a href="privacy-policy.html">隱私政策</a>
+                <a href="terms.html">服務條款</a>
             </div>
         </div>
         
@@ -1497,7 +1627,24 @@
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const navLinks = document.querySelector('.nav-links');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelector('.nav-links');
+            if (!navbar.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
         });
 
         // Parallax effect for hero section

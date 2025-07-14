@@ -8,7 +8,7 @@
     <meta name="keywords" content="技術支援,使用說明,常見問題,系統需求,聯絡我們,醫護助手幫助">
     
     <!-- Favicon -->
-    <link rel="icon" href="../icon.png" type="image/png">
+    <link rel="icon" href="icon.png" type="image/png">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -153,6 +153,15 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--slate-600);
+            cursor: pointer;
         }
 
         /* Page Header */
@@ -472,19 +481,173 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 16px 16px;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                display: block;
+                border-bottom: 1px solid var(--slate-100);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                padding: 0.75rem;
+                font-size: 1.25rem;
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            .nav-container {
+                padding: 0.75rem 1rem;
+                position: relative;
+            }
+
+            .logo {
+                font-size: 1.25rem;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+            }
+
+            .page-header {
+                padding: 6rem 1rem 3rem;
             }
 
             .page-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                line-height: 1.3;
+            }
+
+            .page-subtitle {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
             }
 
             .quick-links {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .quick-link-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .quick-link-btn {
+                width: 100%;
+                max-width: 200px;
+                padding: 0.875rem 1.5rem;
+                min-height: 44px;
+                margin: 0 auto;
+                display: block;
+                text-align: center;
+            }
+
+            .faq-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .faq-question {
+                font-size: 1rem;
+            }
+
+            .faq-answer {
+                font-size: 0.9rem;
+            }
+
+            .system-req {
+                padding: 2rem 1.5rem;
+            }
+
+            .req-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .footer-links {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
+            }
+
+            .footer-links a {
+                padding: 0.75rem;
+                font-size: 1rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .page-header {
+                padding: 5rem 0.75rem 2.5rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 2.5rem 0.75rem;
+            }
+
+            .quick-link-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .faq-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .system-req {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-section {
+                padding: 1.5rem 1rem;
             }
         }
     </style>
@@ -497,16 +660,20 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="../icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
+                <img src="icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
                 <span>Doctor Assistance</span>
             </a>
             
             <ul class="nav-links">
                 <li><a href="index.html">首頁</a></li>
-                <li><a href="features.html">功能特色</a></li>
+                <li><a href="index.html#features">功能特色</a></li>
                 <li><a href="security.html">安全性</a></li>
                 <li><a href="support.html">技術支援</a></li>
+                <li><a href="privacy-policy.html">隱私政策</a></li>
+                <li><a href="terms.html">服務條款</a></li>
             </ul>
+            
+            <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
 
@@ -578,12 +745,12 @@
             <h2 class="section-title">使用說明</h2>
             <div class="faq-section">
                 <div class="faq-item">
-                    <h4 class="faq-question">如何開始使用 DRAssistance？</h4>
+                    <h4 class="faq-question">如何開始使用 Doctor Assistance？</h4>
                     <div class="faq-answer">
                         <p>首次使用需要進行以下步驟：</p>
                         <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                            <li>下載並安裝 DRAssistance 應用程式</li>
-                            <li>使用 Google/Apple 帳號註冊登入</li>
+                            <li>下載並安裝 Doctor Assistance 應用程式</li>
+                            <li>註冊帳號登入</li>
                             <li>應用程式會自動初始化加密系統</li>
                             <li>開始添加病人資料或使用語音功能建立任務</li>
                         </ol>
@@ -623,7 +790,7 @@
                     <div class="faq-answer">
                         <p>跨設備同步完全自動化：</p>
                         <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                            <li>使用相同的 Google/Apple 帳號登入</li>
+                            <li>使用相同的帳號登入</li>
                             <li>應用程式會自動從雲端同步加密金鑰</li>
                             <li>所有病人資料和任務會自動解密顯示</li>
                             <li>如遇同步問題，可在設定頁面重新同步密鑰</li>
@@ -649,7 +816,7 @@
                 <div class="faq-item">
                     <h4 class="faq-question">忘記帳號或無法登入怎麼辦？</h4>
                     <div class="faq-answer">
-                        DRAssistance 使用 Firebase Authentication，您可以直接使用 Google 或 Apple 帳號登入，無需記住額外密碼。所有加密金鑰都與您的 Google/Apple 帳號綁定，確保跨設備安全同步。
+                        Doctor Assistance 使用 Firebase Authentication，您可以直接使用帳號登入。所有加密金鑰都與您的帳號綁定，確保跨設備安全同步。
                     </div>
                 </div>
                 
@@ -663,7 +830,7 @@
                 <div class="faq-item">
                     <h4 class="faq-question">可以離線使用嗎？</h4>
                     <div class="faq-answer">
-                        目前 DRAssistance 需要網路連線才能正常運作，因為語音轉任務功能使用雲端 AI 服務，資料同步也依賴 Firebase。未來版本將考慮加入離線功能。
+                        目前 Doctor Assistance 需要網路連線才能正常運作，因為語音轉任務功能使用雲端 AI 服務，資料同步也依賴 Firebase。未來版本將考慮加入離線功能。
                     </div>
                 </div>
                 
@@ -763,7 +930,7 @@
         <div class="footer-content">
             <div class="footer-links">
                 <a href="index.html">首頁</a>
-                <a href="features.html">功能特色</a>
+                <a href="index.html#features">功能特色</a>
                 <a href="security.html">安全性</a>
                 <a href="support.html">技術支援</a>
                 <a href="privacy-policy.html">隱私政策</a>
@@ -787,6 +954,29 @@
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                const navLinks = document.querySelector('.nav-links');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const navbar = document.querySelector('.navbar');
+            const navLinks = document.querySelector('.nav-links');
+            if (!navbar.contains(event.target)) {
+                navLinks.classList.remove('active');
             }
         });
 
