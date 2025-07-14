@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>功能特色 | Doctor Assistance</title>
+    <meta name="description" content="探索 DRAssistance 的完整功能特色，包括智能任務管理、AI 語音識別、雲端同步等核心功能。">
+    <meta name="keywords" content="醫護助手功能,語音識別,任務管理,雲端同步,醫療應用">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../icon.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-50: #f0f9ff;
+            --primary-100: #e0f2fe;
+            --primary-500: #0ea5e9;
+            --primary-600: #0284c7;
+            --primary-700: #0369a1;
+            --primary-900: #0c4a6e;
+            
+            --secondary-500: #06b6d4;
+            --secondary-600: #0891b2;
+            
+            --emerald-500: #10b981;
+            --emerald-600: #059669;
+            
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--slate-700);
+            background: linear-gradient(135deg, var(--slate-50) 0%, var(--primary-50) 100%);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--slate-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-600);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary-500);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Feature Categories */
+        .feature-category {
+            margin-bottom: 5rem;
+        }
+
+        .category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .category-badge {
+            display: inline-block;
+            background: var(--primary-50);
+            color: var(--primary-700);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary-100);
+        }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .category-description {
+            color: var(--slate-600);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--slate-600);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-highlights {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-highlights li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--slate-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-highlights li::before {
+            content: '✓';
+            color: var(--emerald-500);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section .section-title {
+            color: white;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            color: white;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-900);
+            color: var(--slate-300);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--slate-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-400);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--slate-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--slate-500);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-decoration"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
+                <span>Doctor Assistance</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="features.html">功能特色</a></li>
+                <li><a href="security.html">安全性</a></li>
+                <li><a href="support.html">技術支援</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-container">
+            <h1 class="page-title">強大功能特色</h1>
+            <p class="page-subtitle">
+                探索 DRAssistance 的完整功能生態系統，為醫護人員打造的智能工作管理平台
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Features -->
+    <section class="section">
+        <div class="container">
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-badge">🎯 核心功能</div>
+                    <h2 class="category-title">智能任務管理系統</h2>
+                    <p class="category-description">
+                        先進的任務管理功能，讓您的醫護工作更有條理、更高效
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-screenshot">
+                            <img src="screenshots/task-management.png" alt="任務管理功能截圖" style="width: 100%; border-radius: 12px; margin-bottom: 1rem; display: none;">
+                            <div class="screenshot-placeholder" style="width: 100%; height: 200px; background: var(--primary-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed var(--primary-200);">
+                                <span style="color: var(--primary-600); font-weight: 600;">📸 任務管理截圖預留位置</span>
+                            </div>
+                        </div>
+                        <div class="feature-icon">📝</div>
+                        <h3 class="feature-title">智能任務建立</h3>
+                        <p class="feature-description">
+                            快速建立和管理個人工作任務，支援任務分類、優先級設定和完成狀態追蹤。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>四種任務類別：藥物、檢驗、影像、其他</li>
+                            <li>重要性標記和優先級管理</li>
+                            <li>即時完成狀態更新</li>
+                            <li>直觀的任務列表界面</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-screenshot">
+                            <img src="screenshots/voice-to-task.png" alt="語音轉任務功能截圖" style="width: 100%; border-radius: 12px; margin-bottom: 1rem; display: none;">
+                            <div class="screenshot-placeholder" style="width: 100%; height: 200px; background: var(--secondary-50); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed var(--secondary-200);">
+                                <span style="color: var(--secondary-600); font-weight: 600;">📸 語音功能截圖預留位置</span>
+                            </div>
+                        </div>
+                        <div class="feature-icon">🎤</div>
+                        <h3 class="feature-title">AI 語音轉任務</h3>
+                        <p class="feature-description">
+                            支援繁體中文語音識別，AI 智能分析語音內容，自動生成結構化任務清單。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>iOS 原生語音辨識 (SFSpeechRecognizer)</li>
+                            <li>Cloudflare Workers AI (LLaMA) 處理</li>
+                            <li>醫療情境理解優化</li>
+                            <li>中英文混合語音支援</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3 class="feature-title">病人管理系統</h3>
+                        <p class="feature-description">
+                            直觀的病人資訊展示與管理，支援重要性標記和備忘錄功能。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>個人化病人卡片設計</li>
+                            <li>重要病人快速標記</li>
+                            <li>展開/收起長文備忘錄</li>
+                            <li>床號自動排序 (病房-床號)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Experience Features -->
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-badge">✨ 使用體驗</div>
+                    <h2 class="category-title">現代化操作體驗</h2>
+                    <p class="category-description">
+                        精心設計的使用者介面，讓每一個操作都直觀流暢
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3 class="feature-title">快速導航</h3>
+                        <p class="feature-description">
+                            AppBar 下拉選單提供快速跳轉功能，讓您輕鬆在不同病人間切換。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>AppBar 下拉病人選單</li>
+                            <li>床號格式化顯示 [W65-053] 張水梅</li>
+                            <li>直接導航到病人詳情頁</li>
+                            <li>Web 和手機端優化佈局</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">👆</div>
+                        <h3 class="feature-title">手勢操作</h3>
+                        <p class="feature-description">
+                            支援直覺的手勢操作，右滑返回、滑動編輯等便利功能。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>右滑返回上一頁</li>
+                            <li>滑動手勢快速編輯</li>
+                            <li>滑動刪除病人資料</li>
+                            <li>閾值激活 (>100px 滑動)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3 class="feature-title">清爽設計</h3>
+                        <p class="feature-description">
+                            優化的 UI 設計，背景色分類顯示，去除冗餘元素，專注核心功能。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>任務背景色分類顯示</li>
+                            <li>移除大型標題區塊</li>
+                            <li>一致的間距和填充</li>
+                            <li>增強的視覺層次</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Features -->
+            <div class="feature-category">
+                <div class="category-header">
+                    <div class="category-badge">⚡ 技術特性</div>
+                    <h2 class="category-title">先進技術架構</h2>
+                    <p class="category-description">
+                        基於最新技術棧構建，確保應用的穩定性和擴展性
+                    </p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">☁️</div>
+                        <h3 class="feature-title">智能雲端同步</h3>
+                        <p class="feature-description">
+                            Firebase Auth 自動解鎖，無需 PIN 碼，跨設備無縫同步。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>Firebase Auth 身份認證</li>
+                            <li>自動金鑰管理和同步</li>
+                            <li>一鍵密鑰重置功能</li>
+                            <li>多設備資料一致性</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3 class="feature-title">iOS/iPad 專屬</h3>
+                        <p class="feature-description">
+                            專為 iOS 和 iPad 平台優化設計，提供最佳的使用體驗。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>iOS 原生語音辨識整合</li>
+                            <li>iPad 大螢幕適配優化</li>
+                            <li>iOS Keychain 安全存儲</li>
+                            <li>原生手勢操作支援</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3 class="feature-title">性能優化</h3>
+                        <p class="feature-description">
+                            Riverpod 狀態管理，高效的資料流處理和記憶體管理。
+                        </p>
+                        <ul class="feature-highlights">
+                            <li>Flutter Riverpod 狀態管理</li>
+                            <li>StreamProvider 即時資料更新</li>
+                            <li>優化的記憶體使用</li>
+                            <li>快速的頁面載入速度</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2 class="section-title">立即體驗強大功能</h2>
+            <p style="font-size: 1.125rem; color: var(--slate-300); margin-bottom: 2rem;">
+                免費下載 DRAssistance，開始您的智能醫護工作之旅
+            </p>
+            <a href="index.html#download" class="btn btn-primary">
+                📱 免費下載應用
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">首頁</a>
+                <a href="features.html">功能特色</a>
+                <a href="security.html">安全性</a>
+                <a href="support.html">技術支援</a>
+                <a href="privacy-policy.html">隱私政策</a>
+                <a href="terms.html">服務條款</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Doctor Assistance. 專為醫護人員設計的工作效率工具。</p>
+            <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+                本應用程式非醫療設備，僅供個人工作效率提升使用。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

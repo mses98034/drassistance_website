@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Assistance | 專為醫護人員設計的智能工作助理</title>
+    <meta name="description" content="DRAssistance 是專為醫護人員設計的智能工作助理，整合AI 語音識別和醫療級加密，提升醫護工作效率。">
+    <meta name="keywords" content="醫護助手,醫療應用,護理工作,醫師助理,語音識別,醫療科技">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../icon.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-50: #f0f9ff;
+            --primary-100: #e0f2fe;
+            --primary-500: #0ea5e9;
+            --primary-600: #0284c7;
+            --primary-700: #0369a1;
+            --primary-900: #0c4a6e;
+            
+            --secondary-500: #06b6d4;
+            --secondary-600: #0891b2;
+            
+            --emerald-500: #10b981;
+            --emerald-600: #059669;
+            
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--slate-700);
+            background: linear-gradient(135deg, var(--slate-50) 0%, var(--primary-50) 100%);
+            overflow-x: hidden;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Background decoration */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Animated gradients */
+        .gradient-bg {
+            background: linear-gradient(-45deg, var(--primary-500), var(--secondary-500), var(--primary-600), var(--secondary-600));
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Fade in animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Scale on hover */
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-scale:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--slate-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-600);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary-500);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--slate-600);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            text-align: left;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary-50);
+            color: var(--primary-700);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid var(--primary-100);
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--slate-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--slate-600);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            color: white;
+            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--slate-700);
+            border: 2px solid var(--slate-200);
+        }
+
+        .btn-secondary:hover {
+            background: var(--slate-50);
+            border-color: var(--primary-300);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--slate-200);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-600);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--slate-600);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 480px;
+            background: linear-gradient(135deg, var(--slate-100), white);
+            border-radius: 40px;
+            border: 8px solid var(--slate-200);
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--slate-100), var(--primary-50));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            border-radius: 32px;
+        }
+
+        .screenshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 32px;
+        }
+
+        .app-icon-large {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.3);
+        }
+
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--slate-200);
+        }
+
+        .floating-element-1 {
+            top: 10%;
+            right: -20px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-element-2 {
+            bottom: 20%;
+            left: -20px;
+            animation: float 4s ease-in-out infinite 2s;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-50);
+            color: var(--primary-700);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 1px solid var(--primary-100);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--slate-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--slate-200);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .feature-description {
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+
+        /* Features Showcase */
+        .features-showcase {
+            margin: 4rem 0;
+        }
+
+        .device-showcase {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+            justify-items: center;
+        }
+
+        .showcase-device {
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out calc(var(--delay) + 0.5s) both;
+        }
+
+        .device-frame {
+            width: 220px;
+            height: 380px;
+            background: linear-gradient(135deg, var(--slate-100), white);
+            border-radius: 35px;
+            border: 6px solid var(--slate-300);
+            position: relative;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .device-frame:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .device-screen {
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            object-fit: cover;
+            border-radius: 29px;
+            margin: 6px;
+        }
+
+        .device-placeholder {
+            width: calc(100% - 12px);
+            height: calc(100% - 12px);
+            background: linear-gradient(135deg, var(--slate-50), var(--primary-50));
+            border-radius: 29px;
+            padding: 1.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            margin: 6px;
+        }
+
+        .placeholder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--slate-200);
+        }
+
+        .placeholder-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--slate-800);
+        }
+
+        .placeholder-icon {
+            font-size: 1.5rem;
+        }
+
+        .placeholder-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .placeholder-item {
+            height: 60px;
+            background: white;
+            border-radius: 12px;
+            border: 2px solid var(--slate-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-500);
+        }
+
+        .placeholder-task {
+            height: 50px;
+            background: white;
+            border-radius: 10px;
+            border: 2px solid var(--slate-200);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .placeholder-task.completed::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--emerald-500);
+        }
+
+        .placeholder-task.pending::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--secondary-500);
+        }
+
+        .placeholder-task.important::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: #ef4444;
+        }
+
+        .voice-wave {
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(90deg, var(--primary-500), var(--secondary-500));
+            border-radius: 30px;
+            margin-bottom: 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .voice-wave::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .voice-text {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            font-style: italic;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--slate-200);
+        }
+
+        .ai-badge {
+            font-size: 0.75rem;
+            color: var(--primary-600);
+            background: var(--primary-50);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            border: 1px solid var(--primary-200);
+        }
+
+        .security-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid var(--slate-200);
+            margin-bottom: 0.5rem;
+        }
+
+        .security-label {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+        }
+
+        .security-status {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--slate-700);
+        }
+
+        .security-status.active {
+            color: var(--emerald-600);
+        }
+
+        .placeholder-label {
+            font-size: 0.75rem;
+            color: var(--slate-500);
+            text-align: center;
+            padding: 0.5rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            border: 1px dashed var(--slate-300);
+        }
+
+        .device-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .device-info p {
+            color: var(--slate-600);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Feature Highlights Grid */
+        .feature-highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-text h5 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.25rem;
+        }
+
+        .highlight-text p {
+            font-size: 0.875rem;
+            color: var(--slate-600);
+            margin: 0;
+        }
+
+        /* Security Section */
+        .security-section {
+            background: linear-gradient(135deg, var(--emerald-50) 0%, var(--primary-50) 100%);
+        }
+
+        .security-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .security-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .security-feature {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .security-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--emerald-500), var(--emerald-600));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .security-content h4 {
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .security-content p {
+            color: var(--slate-600);
+            font-size: 0.875rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            background: linear-gradient(135deg, var(--slate-900) 0%, var(--slate-800) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .download-section .section-title {
+            color: white;
+        }
+
+        .download-section .section-subtitle {
+            color: var(--slate-300);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+
+        .download-btn {
+            background: white;
+            color: var(--slate-900);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-900);
+            color: var(--slate-300);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--slate-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-400);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--slate-700);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--slate-500);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .device-showcase {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .device-frame {
+                width: 200px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .security-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Features Showcase Mobile */
+            .device-showcase {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .device-frame {
+                width: 250px;
+                height: 400px;
+            }
+
+            .device-placeholder {
+                padding: 1.5rem 1rem;
+            }
+
+            .placeholder-header {
+                margin-bottom: 1.5rem;
+            }
+
+            .placeholder-title {
+                font-size: 1rem;
+            }
+
+            .feature-highlights-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .highlight-item {
+                padding: 1rem;
+            }
+
+            .highlight-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Scroll Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #ffeaa7;
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .disclaimer h3 {
+            color: #856404;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .disclaimer p {
+            color: #856404;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-decoration"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="../icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
+                <span>Doctor Assistance</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#features">功能特色</a></li>
+                <li><a href="#security">安全性</a></li>
+                <li><a href="#download">下載</a></li>
+                <li><a href="support.html">技術支援</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="hero-badge">
+                    ⚡ 醫療級智能助理
+                </div>
+                <h1 class="hero-title">
+                    未來醫護工作
+                    <span style="background: linear-gradient(135deg, var(--primary-500), var(--secondary-500)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">就在掌中</span>
+                </h1>
+                <p class="hero-subtitle">
+                    DRAssistance 是專為醫護人員設計的智能工作助理，整合AI 語音識別和醫療級加密技術，
+                    讓您的醫護工作更高效、更安全、更智能。
+                </p>
+                <div class="hero-buttons">
+                    <a href="#download" class="btn btn-primary">
+                        📱 免費下載
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        ▶️ 觀看演示
+                    </a>
+                </div>
+                
+            
+            </div>
+            
+            <div class="hero-visual">
+                <div class="phone-mockup float-animation">
+                    <div class="phone-screen">
+                        <!-- 實際截圖將放在這裡 -->
+                        <img src="screenshots/app-main-screen.png" alt="DRAssistance 主畫面截圖" class="screenshot-img" style="display: none;">
+                        
+                        <!-- 暫時的佔位符，截圖就緒後隱藏 -->
+                        <div class="screenshot-placeholder">
+                            <div class="app-icon-large">🏥</div>
+                            <h3 style="color: var(--slate-900); margin-bottom: 0.5rem;">Doctor Assistance</h3>
+                            <p style="color: var(--slate-600); font-size: 0.875rem;">醫護智能助理</p>
+                            <div style="margin-top: 1.5rem; padding: 1rem; background: var(--primary-50); border-radius: 12px; width: 100%;">
+                                <div style="color: var(--primary-700); font-weight: 600; font-size: 0.875rem;">今日任務：8/12 完成</div>
+                                <div style="width: 100%; height: 4px; background: var(--primary-200); border-radius: 2px; margin-top: 0.5rem;">
+                                    <div style="width: 66%; height: 100%; background: var(--primary-500); border-radius: 2px;"></div>
+                                </div>
+                            </div>
+                            <p style="color: var(--slate-500); font-size: 0.75rem; margin-top: 1rem;">📸 實際截圖預留位置</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="floating-elements">
+                    <div class="floating-element floating-element-1">
+                        <div style="color: var(--emerald-600); font-weight: 600; font-size: 0.75rem;">✅ 安全加密</div>
+                    </div>
+                    <div class="floating-element floating-element-2">
+                        <div style="color: var(--primary-600); font-weight: 600; font-size: 0.75rem;">🎤 語音識別</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-badge">核心功能</div>
+                <h2 class="section-title">智能醫護生態系統</h2>
+                <p class="section-subtitle">
+                    透過實際操作畫面，體驗 DRAssistance 的強大功能
+                </p>
+            </div>
+            
+            <!-- Multi-Device Feature Showcase -->
+            <div class="features-showcase animate-on-scroll">
+                <div class="device-showcase">
+                    <!-- Device 1: Patient List -->
+                    <div class="showcase-device" style="--delay: 0s;">
+                        <div class="device-frame">
+                            <img src="screenshots/patient-list.png" alt="病人列表畫面" class="device-screen" style="display: block;">
+                            <div class="device-placeholder" style="display: none;">
+                                <div class="placeholder-header">
+                                    <div class="placeholder-title">病人列表</div>
+                                    <div class="placeholder-icon">👥</div>
+                                </div>
+                                <div class="placeholder-content">
+                                    <div class="placeholder-item"></div>
+                                    <div class="placeholder-item"></div>
+                                    <div class="placeholder-item"></div>
+                                </div>
+                                <div class="placeholder-label">病人管理截圖</div>
+                            </div>
+                        </div>
+                        <div class="device-info">
+                            <h4>病人管理</h4>
+                            <p>直觀管理病人資料，床號排序，重要標記</p>
+                        </div>
+                    </div>
+
+                    <!-- Device 2: Task Management -->
+                    <div class="showcase-device" style="--delay: 0.2s;">
+                        <div class="device-frame">
+                            <img src="screenshots/task-detail.png" alt="任務管理畫面" class="device-screen" style="display: block;">
+                            <div class="device-placeholder" style="display: none;">
+                                <div class="placeholder-header">
+                                    <div class="placeholder-title">任務管理</div>
+                                    <div class="placeholder-icon">📝</div>
+                                </div>
+                                <div class="placeholder-content">
+                                    <div class="placeholder-task completed"></div>
+                                    <div class="placeholder-task pending"></div>
+                                    <div class="placeholder-task important"></div>
+                                </div>
+                                <div class="placeholder-label">任務追蹤截圖</div>
+                            </div>
+                        </div>
+                        <div class="device-info">
+                            <h4>智能任務</h4>
+                            <p>任務分類管理，優先級設定，進度追蹤</p>
+                        </div>
+                    </div>
+
+                    <!-- Device 3: Voice Feature -->
+                    <div class="showcase-device" style="--delay: 0.4s;">
+                        <div class="device-frame">
+                            <img src="screenshots/voice-input.png" alt="語音輸入畫面" class="device-screen" style="display: block;">
+                            <div class="device-placeholder" style="display: none;">
+                                <div class="placeholder-header">
+                                    <div class="placeholder-title">語音輸入</div>
+                                    <div class="placeholder-icon">🎤</div>
+                                </div>
+                                <div class="placeholder-content">
+                                    <div class="voice-wave"></div>
+                                    <div class="voice-text">「幫病人安排明天的X光檢查」</div>
+                                    <div class="ai-badge">AI 處理中...</div>
+                                </div>
+                                <div class="placeholder-label">語音轉任務截圖</div>
+                            </div>
+                        </div>
+                        <div class="device-info">
+                            <h4>AI 語音助手</h4>
+                            <p>繁體中文語音識別，智能任務生成</p>
+                        </div>
+                    </div>
+
+                    <!-- Device 4: Security Settings -->
+                    <div class="showcase-device" style="--delay: 0.6s;">
+                        <div class="device-frame">
+                            <img src="screenshots/security-screen.png" alt="安全設定畫面" class="device-screen" style="display: block;">
+                            <div class="device-placeholder">
+                                <div class="placeholder-header">
+                                    <div class="placeholder-title">安全設定</div>
+                                    <div class="placeholder-icon">🔒</div>
+                                </div>
+                                <div class="placeholder-content">
+                                    <div class="security-item">
+                                        <span class="security-label">加密狀態</span>
+                                        <span class="security-status active">已啟用</span>
+                                    </div>
+                                    <div class="security-item">
+                                        <span class="security-label">認證方式</span>
+                                        <span class="security-status">Firebase Auth</span>
+                                    </div>
+                                </div>
+                                <div class="placeholder-label">安全加密截圖</div>
+                            </div>
+                        </div>
+                        <div class="device-info">
+                            <h4>醫療級加密</h4>
+                            <p>AES-256 加密，Firebase Auth 認證</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature Highlights -->
+                <div class="feature-highlights-grid">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🏥</div>
+                        <div class="highlight-text">
+                            <h5>醫院系統整合</h5>
+                            <p>支援台中榮總HIS系統同步</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">☁️</div>
+                        <div class="highlight-text">
+                            <h5>智能雲端同步</h5>
+                            <p>跨設備無縫同步，無需額外密碼</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">🚀</div>
+                        <div class="highlight-text">
+                            <h5>高效體驗</h5>
+                            <p>現代化 UI，直觀操作，手勢導航</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="section security-section">
+        <div class="container">
+            <div class="security-grid">
+                <div class="animate-on-scroll">
+                    <div class="section-badge" style="background: var(--emerald-50); color: var(--emerald-700); border-color: var(--emerald-200);">
+                        🛡️ 安全保障
+                    </div>
+                    <h2 class="section-title">
+                        您的數據安全
+                        <span style="color: var(--emerald-600);">是我們的首要任務</span>
+                    </h2>
+                    <p class="section-subtitle" style="text-align: left; margin: 0;">
+                        採用業界最高安全標準，多層加密保護，確保您的醫療數據絕對安全可靠。
+                        我們僅對真正敏感的患者識別資訊進行加密，在安全性與使用體驗間達到完美平衡。
+                    </p>
+                </div>
+                
+                <div class="security-features animate-on-scroll">
+                    <div class="security-feature">
+                        <div class="security-icon">🔒</div>
+                        <div class="security-content">
+                            <h4>AES-256-GCM 加密</h4>
+                            <p>採用軍用級加密技術，僅對患者姓名、病歷號、住院號等敏感識別資訊進行精準加密。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="security-icon">🛡️</div>
+                        <div class="security-content">
+                            <h4>強制加密保護</h4>
+                            <p>確保所有病人敏感資料必須加密存儲，無明文 fallback 選項，絕對保護患者隱私。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="security-icon">🔑</div>
+                        <div class="security-content">
+                            <h4>智能金鑰管理</h4>
+                            <p>Firebase Auth 自動金鑰管理，無需額外密碼，跨設備智能同步，每位醫師擁有獨立的加密金鑰。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="security-feature">
+                        <div class="security-icon">🚫</div>
+                        <div class="security-content">
+                            <h4>零第三方追蹤</h4>
+                            <p>純自建系統，無外部分析工具，使用者資料完全隔離，符合醫療資安標準。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="section">
+        <div class="container">
+            <div class="disclaimer animate-on-scroll">
+                <h3>⚠️ 重要聲明</h3>
+                <p>
+                    <strong>本應用程式為個人生產力工具，非醫療設備。</strong>
+                    不提供醫療診斷或治療建議，不替代專業醫療判斷，不用於緊急醫療情況，
+                    僅作為醫護人員提升工作效率的輔助工具。所有醫療決策仍需依據專業醫療判斷。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="section download-section">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <div class="section-badge" style="background: rgba(255, 255, 255, 0.1); color: white; border-color: rgba(255, 255, 255, 0.2);">
+                    立即開始
+                </div>
+                <h2 class="section-title">開啟您的智能醫護之旅</h2>
+                <p class="section-subtitle">
+                    免費下載 DRAssistance 應用程式，體驗革命性的醫護工作管理服務
+                </p>
+                
+                <div class="download-buttons">
+                    <a href="#" class="download-btn">
+                        App Store 下載
+                    </a>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; color: white; margin-bottom: 0.5rem;">免費</div>
+                        <div style="color: var(--slate-300);">基礎功能完全免費</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; color: white; margin-bottom: 0.5rem;">24/7</div>
+                        <div style="color: var(--slate-300);">全天候技術支援</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 2rem; font-weight: 800; color: white; margin-bottom: 0.5rem;">安全</div>
+                        <div style="color: var(--slate-300);">醫療級加密保護</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <img src="../icon.png" alt="DRAssistance Icon" style="width: 32px; height: 32px; border-radius: 8px;">
+                    <span style="font-size: 1.25rem; font-weight: 800; color: white;">Doctor Assistance</span>
+                </div>
+                <p style="color: var(--slate-400); line-height: 1.6;">
+                    專為醫護人員設計的智能工作助理，讓醫護工作更高效、更安全、更智能。
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>產品</h4>
+                <ul>
+                    <li><a href="features.html">功能特色</a></li>
+                    <li><a href="security.html">安全性</a></li>
+                    <li><a href="#download">下載應用</a></li>
+                    <li><a href="support.html">系統需求</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>支援</h4>
+                <ul>
+                    <li><a href="support.html">技術支援</a></li>
+                    <li><a href="support.html">使用說明</a></li>
+                    <li><a href="support.html">常見問題</a></li>
+                    <li><a href="support.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>法律條款</h4>
+                <ul>
+                    <li><a href="privacy-policy.html">隱私政策</a></li>
+                    <li><a href="terms.html">服務條款</a></li>
+                    <li><a href="terms.html">使用者協議</a></li>
+                    <li><a href="privacy-policy.html">醫療免責聲明</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Doctor Assistance. 專為醫護人員設計的工作效率工具。</p>
+            <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+                本應用程式非醫療設備，僅供個人工作效率提升使用。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-visual');
+            if (parallax) {
+                const speed = scrolled * 0.5;
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

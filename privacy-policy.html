@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隱私政策與醫療免責聲明 | Doctor Assistance</title>
+    <meta name="description" content="DRAssistance 隱私政策，詳細說明個人資料保護、醫療級加密和使用者隱私權。醫療免責聲明與使用條款。">
+    <meta name="keywords" content="隱私政策,個人資料保護,醫療免責聲明,資料安全,GDPR,HIPAA">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../icon.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-50: #f0f9ff;
+            --primary-100: #e0f2fe;
+            --primary-500: #0ea5e9;
+            --primary-600: #0284c7;
+            --primary-700: #0369a1;
+            --primary-900: #0c4a6e;
+            
+            --secondary-500: #06b6d4;
+            --secondary-600: #0891b2;
+            
+            --emerald-50: #ecfdf5;
+            --emerald-500: #10b981;
+            --emerald-600: #059669;
+            
+            --yellow-50: #fefce8;
+            --yellow-500: #eab308;
+            --yellow-600: #ca8a04;
+            
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--slate-700);
+            background: linear-gradient(135deg, var(--slate-50) 0%, var(--primary-50) 100%);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--slate-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-600);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary-500);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-50), var(--emerald-50));
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: var(--emerald-50);
+            color: var(--emerald-700);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid var(--emerald-200);
+        }
+
+        /* Content */
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .policy-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--slate-800);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--slate-700);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-content p {
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section-content ul, .section-content ol {
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: var(--yellow-50);
+            border: 1px solid var(--yellow-500);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--yellow-600);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .highlight-box p {
+            color: var(--slate-700);
+            margin-bottom: 0;
+        }
+
+        .security-badge {
+            background: var(--emerald-50);
+            color: var(--emerald-700);
+            border: 1px solid var(--emerald-200);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box {
+            background: var(--primary-50);
+            border: 1px solid var(--primary-200);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-box h3 {
+            color: var(--primary-700);
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            background: var(--primary-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            background: var(--primary-600);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-900);
+            color: var(--slate-300);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--slate-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-400);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--slate-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--slate-500);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .policy-section {
+                padding: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-decoration"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
+                <span>Doctor Assistance</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="features.html">功能特色</a></li>
+                <li><a href="security.html">安全性</a></li>
+                <li><a href="support.html">技術支援</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-container">
+            <div class="last-updated">
+                📅 最後更新：2025年7月14日
+            </div>
+            <h1 class="page-title">隱私政策與醫療免責聲明</h1>
+            <p class="page-subtitle">
+                我們致力於保護您的隱私權和個人資料安全。
+                本政策詳細說明我們如何收集、使用和保護您的資訊。
+            </p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content">
+        <div class="container">
+            <!-- Introduction -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    🛡️ 概述
+                </h2>
+                <div class="section-content">
+                    <div class="security-badge">
+                        🔒 醫療級隱私保護
+                    </div>
+                    <p>
+                        Doctor Assistance（以下簡稱「本應用程式」或「DRAssistance」）是專為醫護人員設計的個人工作效率工具。
+                        我們深知醫療數據的敏感性，因此採用最高標準的隱私保護措施。
+                    </p>
+                    <p>
+                        本隱私政策說明我們如何收集、使用、存儲和保護您的個人資訊，以及您在資料保護方面享有的權利。
+                        使用本應用程式即表示您同意本隱私政策的條款。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Data Collection -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    📊 資料收集與使用
+                </h2>
+                <div class="section-content">
+                    <h3>我們收集的資訊類型</h3>
+                    
+                    <h4>1. 帳戶資訊</h4>
+                    <ul>
+                        <li><strong>身份驗證資訊：</strong>透過 Firebase Authentication 收集的 Google/Apple 帳號資訊</li>
+                        <li><strong>用戶識別碼：</strong>用於資料隔離和安全管理的唯一識別碼</li>
+                        <li><strong>登入記錄：</strong>登入時間和設備資訊（僅用於安全監控）</li>
+                    </ul>
+
+                    <h4>2. 應用程式使用資料</h4>
+                    <ul>
+                        <li><strong>個人任務：</strong>您建立的工作任務和備忘錄（明文存儲）</li>
+                        <li><strong>患者資料：</strong>患者識別資訊（加密存儲）和非敏感資訊（明文存儲）</li>
+                        <li><strong>語音資料：</strong>語音轉文字處理（即時處理，不存儲音頻）</li>
+                    </ul>
+
+                    <h4>3. 技術資訊</h4>
+                    <ul>
+                        <li><strong>設備資訊：</strong>作業系統版本、應用程式版本</li>
+                        <li><strong>錯誤日誌：</strong>應用程式崩潰和錯誤報告（不包含個人資料）</li>
+                        <li><strong>使用統計：</strong>功能使用頻率（匿名化處理）</li>
+                    </ul>
+
+                    <h3>資料使用目的</h3>
+                    <ul>
+                        <li>提供核心應用程式功能和服務</li>
+                        <li>跨設備同步您的工作資料</li>
+                        <li>改善應用程式性能和使用者體驗</li>
+                        <li>提供技術支援和客戶服務</li>
+                        <li>確保應用程式安全和防止濫用</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Security -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    🔒 資料安全與加密
+                </h2>
+                <div class="section-content">
+                    <h3>精準加密策略</h3>
+                    <p>
+                        我們採用務實的資料保護方法，僅對真正敏感的患者識別資訊進行軍用級加密：
+                    </p>
+                    
+                    <h4>🔐 加密保護資料（AES-256-GCM）</h4>
+                    <ul>
+                        <li>患者姓名</li>
+                        <li>病歷號碼</li>
+                        <li>住院號碼</li>
+                    </ul>
+
+                    <h4>📝 明文存儲資料</h4>
+                    <ul>
+                        <li>床號、年齡、性別等非敏感資訊</li>
+                        <li>個人任務和備忘錄</li>
+                        <li>醫師個人設定</li>
+                    </ul>
+
+                    <h3>安全措施</h3>
+                    <ul>
+                        <li><strong>端到端加密：</strong>使用 AES-256-GCM 算法</li>
+                        <li><strong>金鑰管理：</strong>每位使用者擁有獨立的加密金鑰</li>
+                        <li><strong>傳輸安全：</strong>所有資料傳輸使用 HTTPS 加密</li>
+                        <li><strong>存取控制：</strong>基於 Firebase Auth 的身份驗證</li>
+                        <li><strong>資料隔離：</strong>使用者資料完全隔離，無法跨帳號存取</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Data Sharing -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    🚫 資料分享與第三方
+                </h2>
+                <div class="section-content">
+                    <h3>我們不會分享您的資料</h3>
+                    <p>
+                        <strong>我們絕不出售、租借或分享您的個人資料給第三方。</strong>
+                        DRAssistance 是純自建系統，不整合任何第三方分析工具或廣告服務。
+                    </p>
+
+                    <h3>例外情況</h3>
+                    <p>僅在以下法律要求的情況下，我們可能會揭露資訊：</p>
+                    <ul>
+                        <li>遵守法律義務或法院命令</li>
+                        <li>保護我們的合法權益</li>
+                        <li>防止欺詐或安全威脅</li>
+                        <li>保護使用者或公眾安全</li>
+                    </ul>
+
+                    <h3>服務提供商</h3>
+                    <p>我們使用以下可信任的服務提供商來支援應用程式運作：</p>
+                    <ul>
+                        <li><strong>Firebase (Google)：</strong>身份驗證、資料庫和雲端存儲</li>
+                        <li><strong>Cloudflare Workers：</strong>AI 語音處理服務</li>
+                    </ul>
+                    <p>這些服務提供商都遵循嚴格的資料保護標準，並與我們簽署資料處理協議。</p>
+                </div>
+            </div>
+
+            <!-- User Rights -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    👤 您的權利
+                </h2>
+                <div class="section-content">
+                    <h3>資料控制權</h3>
+                    <p>根據適用的資料保護法律，您享有以下權利：</p>
+                    
+                    <ul>
+                        <li><strong>存取權：</strong>查看我們持有的您的個人資料</li>
+                        <li><strong>更正權：</strong>更新或修正不準確的資料</li>
+                        <li><strong>刪除權：</strong>要求刪除您的個人資料</li>
+                        <li><strong>可攜權：</strong>以結構化格式匯出您的資料</li>
+                        <li><strong>限制處理權：</strong>限制我們處理您資料的方式</li>
+                        <li><strong>反對權：</strong>反對特定的資料處理活動</li>
+                    </ul>
+
+                    <h3>如何行使您的權利</h3>
+                    <p>您可以透過以下方式行使這些權利：</p>
+                    <ul>
+                        <li>在應用程式設定頁面直接管理您的資料</li>
+                        <li>使用「清除用戶數據」功能完全刪除您的資料</li>
+                        <li>聯絡我們的技術支援團隊：mses98034@gmail.com</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <h4>⚠️ 重要提醒</h4>
+                        <p>
+                            刪除資料是不可逆的操作。一旦刪除，您的所有患者資料、任務和設定都將永久移除，無法恢復。
+                            請在執行刪除操作前仔細考慮。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medical Disclaimer -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    ⚕️ 醫療免責聲明
+                </h2>
+                <div class="section-content">
+                    <div class="highlight-box">
+                        <h4>⚠️ 重要醫療聲明</h4>
+                        <p>
+                            <strong>本應用程式為個人生產力工具，非醫療設備，不提供醫療建議。</strong>
+                        </p>
+                    </div>
+
+                    <h3>使用限制</h3>
+                    <ul>
+                        <li><strong>非醫療設備：</strong>本應用程式未經醫療器材認證，不得用於醫療診斷或治療</li>
+                        <li><strong>非醫療建議：</strong>應用程式內容不構成醫療建議、診斷或治療建議</li>
+                        <li><strong>非緊急使用：</strong>不得在緊急醫療情況下依賴本應用程式</li>
+                        <li><strong>非正式記錄：</strong>不應作為正式醫療記錄的替代品</li>
+                    </ul>
+
+                    <h3>責任限制</h3>
+                    <p>使用本應用程式時，您確認並同意：</p>
+                    <ul>
+                        <li>所有醫療決策應基於專業醫療判斷</li>
+                        <li>應用程式僅作為個人工作管理輔助工具</li>
+                        <li>我們不對使用本應用程式所產生的任何醫療後果承擔責任</li>
+                        <li>在緊急情況下應立即尋求專業醫療協助</li>
+                    </ul>
+
+                    <h3>資料使用免責</h3>
+                    <ul>
+                        <li>使用者需自行確保輸入資料的準確性</li>
+                        <li>語音識別可能存在錯誤，應仔細檢查轉換結果</li>
+                        <li>我們不保證應用程式功能的絕對準確性或可靠性</li>
+                        <li>技術故障或資料遺失的風險由使用者自行承擔</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Legal Compliance -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    ⚖️ 法律合規
+                </h2>
+                <div class="section-content">
+                    <h3>適用的法律框架</h3>
+                    <p>本應用程式的隱私保護措施符合以下國際標準：</p>
+                    
+                    <ul>
+                        <li><strong>GDPR (歐盟一般資料保護規範)：</strong>確保歐盟使用者的資料權利</li>
+                        <li><strong>HIPAA (美國健康保險流通與責任法案)：</strong>符合醫療資訊保護標準</li>
+                        <li><strong>個人資料保護法：</strong>遵循台灣個人資料保護相關法規</li>
+                        <li><strong>醫療資安標準：</strong>採用醫療行業最佳安全實務</li>
+                    </ul>
+
+                    <h3>資料保存期限</h3>
+                    <ul>
+                        <li><strong>使用者資料：</strong>直到您刪除帳號或請求刪除</li>
+                        <li><strong>技術日誌：</strong>最多保存 90 天後自動刪除</li>
+                        <li><strong>備份資料：</strong>遵循 Firebase 的資料保存政策</li>
+                    </ul>
+
+                    <h3>跨境資料傳輸</h3>
+                    <p>
+                        由於使用 Firebase 服務，您的資料可能在不同國家的資料中心之間傳輸。
+                        所有傳輸都使用加密保護，並遵循適用的資料保護法律。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Policy Changes -->
+            <div class="policy-section">
+                <h2 class="section-title">
+                    📝 政策更新
+                </h2>
+                <div class="section-content">
+                    <h3>修訂通知</h3>
+                    <p>
+                        我們可能會定期更新本隱私政策以反映法律變化或服務改進。
+                        重大變更將透過以下方式通知您：
+                    </p>
+                    <ul>
+                        <li>應用程式內通知</li>
+                        <li>電子郵件通知（如適用）</li>
+                        <li>官方網站公告</li>
+                    </ul>
+
+                    <h3>生效日期</h3>
+                    <p>
+                        本隱私政策自 2025年7月14日 起生效。
+                        繼續使用應用程式表示您接受更新後的政策條款。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-box">
+                <h3>🤝 聯絡我們</h3>
+                <p>
+                    如果您對本隱私政策有任何疑問或需要行使資料權利，
+                    請聯絡我們的隱私保護團隊：
+                </p>
+                <a href="mailto:mses98034@gmail.com" class="contact-email">
+                    📧 mses98034@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">首頁</a>
+                <a href="features.html">功能特色</a>
+                <a href="security.html">安全性</a>
+                <a href="support.html">技術支援</a>
+                <a href="privacy-policy.html">隱私政策</a>
+                <a href="terms.html">服務條款</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Doctor Assistance. 您的隱私權，我們的承諾。</p>
+            <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+                本應用程式致力於保護使用者隱私，採用最高標準的資料保護措施。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

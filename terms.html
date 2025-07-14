@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服務條款與使用者協議 | Doctor Assistance</title>
+    <meta name="description" content="DRAssistance 服務條款與使用者協議，詳細規範應用程式使用權利、義務和責任。">
+    <meta name="keywords" content="服務條款,使用者協議,使用條款,法律聲明,責任限制">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../icon.png" type="image/png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-50: #f0f9ff;
+            --primary-100: #e0f2fe;
+            --primary-500: #0ea5e9;
+            --primary-600: #0284c7;
+            --primary-700: #0369a1;
+            --primary-900: #0c4a6e;
+            
+            --secondary-500: #06b6d4;
+            --secondary-600: #0891b2;
+            
+            --emerald-50: #ecfdf5;
+            --emerald-500: #10b981;
+            --emerald-600: #059669;
+            
+            --red-50: #fef2f2;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+            
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-300: #cbd5e1;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-600: #475569;
+            --slate-700: #334155;
+            --slate-800: #1e293b;
+            --slate-900: #0f172a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--slate-700);
+            background: linear-gradient(135deg, var(--slate-50) 0%, var(--primary-50) 100%);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--slate-200);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--slate-600);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-600);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--primary-500);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Page Header */
+        .page-header {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-50), var(--red-50));
+        }
+
+        .header-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--slate-900);
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--slate-600);
+            line-height: 1.6;
+        }
+
+        .last-updated {
+            display: inline-block;
+            background: var(--primary-50);
+            color: var(--primary-700);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid var(--primary-200);
+        }
+
+        /* Content */
+        .content {
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terms-section {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--slate-200);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--slate-900);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--slate-800);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--slate-700);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-content p {
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .section-content ul, .section-content ol {
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .section-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .warning-box {
+            background: var(--red-50);
+            border: 2px solid var(--red-500);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .warning-box h4 {
+            color: var(--red-600);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .warning-box p {
+            color: var(--slate-700);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+
+        .info-box {
+            background: var(--primary-50);
+            border: 1px solid var(--primary-200);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: var(--primary-700);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box p {
+            color: var(--slate-700);
+            margin-bottom: 0;
+        }
+
+        .agreement-badge {
+            background: var(--emerald-50);
+            color: var(--emerald-700);
+            border: 1px solid var(--emerald-200);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-box {
+            background: var(--primary-50);
+            border: 1px solid var(--primary-200);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .contact-box h3 {
+            color: var(--primary-700);
+            margin-bottom: 1rem;
+        }
+
+        .contact-box p {
+            color: var(--slate-600);
+            margin-bottom: 1rem;
+        }
+
+        .contact-email {
+            background: var(--primary-500);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contact-email:hover {
+            background: var(--primary-600);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--slate-900);
+            color: var(--slate-300);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--slate-400);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-400);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--slate-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--slate-500);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .terms-section {
+                padding: 2rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-decoration"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="../icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
+                <span>Doctor Assistance</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="features.html">功能特色</a></li>
+                <li><a href="security.html">安全性</a></li>
+                <li><a href="support.html">技術支援</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="header-container">
+            <div class="last-updated">
+                📅 最後更新：2025年7月14日
+            </div>
+            <h1 class="page-title">服務條款與使用者協議</h1>
+            <p class="page-subtitle">
+                歡迎使用 Doctor Assistance。
+                本協議規範您使用我們服務的權利和義務，請仔細閱讀並同意以下條款。
+            </p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="content">
+        <div class="container">
+            <!-- Agreement -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    📋 協議接受
+                </h2>
+                <div class="section-content">
+                    <div class="agreement-badge">
+                        ✅ 使用者協議
+                    </div>
+                    <p>
+                        歡迎使用 Doctor Assistance（以下簡稱「本服務」、「本應用程式」或「DRAssistance」）。
+                        本服務由開發團隊提供，專為醫護人員設計的個人工作效率工具。
+                    </p>
+                    <p>
+                        使用本服務即表示您已閱讀、理解並同意遵守本使用者協議（以下簡稱「本協議」）的所有條款。
+                        如果您不同意本協議的任何條款，請立即停止使用本服務。
+                    </p>
+                    
+                    <div class="warning-box">
+                        <h4>⚠️ 重要聲明</h4>
+                        <p>
+                            <strong>本應用程式為個人生產力工具，非醫療設備。</strong>
+                            不提供醫療診斷或治療建議，不替代專業醫療判斷。
+                            所有醫療決策仍需依據專業醫療標準進行。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Description -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    🏥 服務描述
+                </h2>
+                <div class="section-content">
+                    <h3>服務性質</h3>
+                    <p>
+                        DRAssistance 是一款專為醫護人員設計的個人工作管理應用程式，提供以下核心功能：
+                    </p>
+                    <ul>
+                        <li>個人任務管理和追蹤</li>
+                        <li>語音轉文字的任務建立功能</li>
+                        <li>個人工作備忘錄管理</li>
+                        <li>跨設備資料同步</li>
+                        <li>醫療級資料加密保護</li>
+                    </ul>
+
+                    <h3>服務限制</h3>
+                    <ul>
+                        <li>本服務僅供個人工作效率提升使用</li>
+                        <li>不得用於正式醫療記錄或診療決策</li>
+                        <li>不得在緊急醫療情況下依賴本服務</li>
+                        <li>服務可用性依賴網路連線和第三方服務</li>
+                    </ul>
+
+                    <h3>技術要求</h3>
+                    <p>使用本服務需要滿足以下技術要求：</p>
+                    <ul>
+                        <li>支援的作業系統：iOS 12.0+、Android API 21+、現代網頁瀏覽器</li>
+                        <li>穩定的網路連線</li>
+                        <li>麥克風存取權限（語音功能）</li>
+                        <li>有效的 Google 或 Apple 帳號</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- User Obligations -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    👤 使用者義務
+                </h2>
+                <div class="section-content">
+                    <h3>合法使用</h3>
+                    <p>您同意僅將本服務用於合法目的，並遵守以下規範：</p>
+                    <ul>
+                        <li>遵守所有適用的法律法規</li>
+                        <li>尊重他人的隱私權和智慧財產權</li>
+                        <li>不得使用自動化工具或機器人存取服務</li>
+                        <li>不得嘗試破解、逆向工程或干擾服務運作</li>
+                        <li>不得傳播惡意軟體或有害程式碼</li>
+                    </ul>
+
+                    <h3>帳號責任</h3>
+                    <ul>
+                        <li>您需負責維護帳號的安全性</li>
+                        <li>不得與他人分享您的登入憑證</li>
+                        <li>及時通報任何未經授權的帳號使用</li>
+                        <li>您需對所有透過您帳號進行的活動負責</li>
+                    </ul>
+
+                    <h3>資料責任</h3>
+                    <ul>
+                        <li>您需確保輸入資料的準確性和合法性</li>
+                        <li>不得輸入侵犯他人權利的內容</li>
+                        <li>妥善管理您的個人資料和工作資料</li>
+                        <li>定期備份重要資料</li>
+                    </ul>
+
+                    <div class="info-box">
+                        <h4>ℹ️ 專業提醒</h4>
+                        <p>
+                            作為醫護專業人員，請確保您對本應用程式的使用符合您所屬機構的政策、
+                            專業倫理標準和相關法規要求。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prohibited Uses -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    🚫 禁止使用
+                </h2>
+                <div class="section-content">
+                    <h3>明確禁止的行為</h3>
+                    <p>以下行為嚴格禁止，違反者將被終止服務：</p>
+                    
+                    <h4>技術濫用</h4>
+                    <ul>
+                        <li>嘗試突破應用程式的安全措施</li>
+                        <li>對服務進行逆向工程或反組譯</li>
+                        <li>使用自動化工具大量存取服務</li>
+                        <li>干擾或中斷服務的正常運作</li>
+                    </ul>
+
+                    <h4>內容濫用</h4>
+                    <ul>
+                        <li>上傳或分享非法、有害或不當內容</li>
+                        <li>侵犯他人的隱私權或智慧財產權</li>
+                        <li>傳播虛假或誤導性資訊</li>
+                        <li>使用服務進行商業推廣或廣告</li>
+                    </ul>
+
+                    <h4>醫療相關禁令</h4>
+                    <ul>
+                        <li>將本應用程式作為醫療設備使用</li>
+                        <li>依賴本應用程式進行醫療診斷或治療決策</li>
+                        <li>在緊急醫療情況下依賴本應用程式</li>
+                        <li>違反醫療倫理或專業標準的使用</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <h4>⚠️ 違規後果</h4>
+                        <p>
+                            違反本協議可能導致帳號暫停或永久終止，
+                            我們保留在必要時採取法律行動的權利。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Intellectual Property -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    📚 智慧財產權
+                </h2>
+                <div class="section-content">
+                    <h3>我們的權利</h3>
+                    <p>
+                        DRAssistance 應用程式及其所有相關內容（包括但不限於軟體程式碼、設計、圖形、文字、商標）
+                        均受智慧財產權法律保護。除本協議明確授權外，您不得：
+                    </p>
+                    <ul>
+                        <li>複製、修改或分發應用程式程式碼</li>
+                        <li>使用我們的商標或標誌</li>
+                        <li>建立衍生作品</li>
+                        <li>進行商業利用</li>
+                    </ul>
+
+                    <h3>您的權利</h3>
+                    <p>
+                        我們授予您有限的、非專屬的、不可轉讓的許可，
+                        僅供個人使用本應用程式的功能。此許可受以下限制：
+                    </p>
+                    <ul>
+                        <li>僅限個人、非商業用途</li>
+                        <li>不得進行再授權或轉讓</li>
+                        <li>遵守本協議的所有條款</li>
+                        <li>可隨時被我們撤銷</li>
+                    </ul>
+
+                    <h3>使用者內容</h3>
+                    <p>
+                        您對輸入到應用程式中的內容（任務、備忘錄等）保有所有權。
+                        我們不會聲稱對您的個人資料擁有任何權利，但您授予我們：
+                    </p>
+                    <ul>
+                        <li>為提供服務所需的處理權限</li>
+                        <li>為改善服務品質的匿名分析權限</li>
+                        <li>為技術支援目的的有限存取權限</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Limitation of Liability -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    ⚖️ 責任限制
+                </h2>
+                <div class="section-content">
+                    <h3>服務提供基礎</h3>
+                    <p>
+                        本服務按「現狀」提供，我們不提供任何明示或暗示的保證，包括但不限於：
+                    </p>
+                    <ul>
+                        <li>服務的可用性、準確性或可靠性</li>
+                        <li>服務不會中斷或無錯誤</li>
+                        <li>資料不會遺失或損壞</li>
+                        <li>服務滿足您的特定需求</li>
+                    </ul>
+
+                    <h3>責任免除</h3>
+                    <p>
+                        在法律允許的最大範圍內，我們不對以下情況承擔責任：
+                    </p>
+                    <ul>
+                        <li>因使用或無法使用本服務而導致的任何損失</li>
+                        <li>資料遺失、損壞或洩漏</li>
+                        <li>第三方服務的故障或中斷</li>
+                        <li>因技術故障導致的任何後果</li>
+                        <li>基於本應用程式資訊做出的任何決策後果</li>
+                    </ul>
+
+                    <h3>賠償限制</h3>
+                    <p>
+                        在任何情況下，我們的總責任（如有）不得超過您在過去 12 個月內
+                        為使用本服務支付的費用總額（本服務目前免費提供）。
+                    </p>
+
+                    <div class="warning-box">
+                        <h4>⚠️ 醫療責任免除</h4>
+                        <p>
+                            我們對因使用本應用程式而產生的任何醫療後果、醫療決策錯誤、
+                            或因依賴本應用程式資訊而導致的醫療事故概不負責。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Modification -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    🔧 服務修改與終止
+                </h2>
+                <div class="section-content">
+                    <h3>服務修改</h3>
+                    <p>我們保留以下權利：</p>
+                    <ul>
+                        <li>隨時修改、更新或改進服務功能</li>
+                        <li>增加或移除特定功能</li>
+                        <li>調整服務的技術要求</li>
+                        <li>變更收費政策（如適用）</li>
+                    </ul>
+                    <p>
+                        重大變更將提前通知使用者，繼續使用服務表示您接受這些變更。
+                    </p>
+
+                    <h3>服務終止</h3>
+                    <p>在以下情況下，我們可能暫停或終止您的服務存取：</p>
+                    <ul>
+                        <li>違反本協議的條款</li>
+                        <li>從事非法或有害活動</li>
+                        <li>濫用或誤用服務</li>
+                        <li>長期未使用服務</li>
+                    </ul>
+
+                    <h3>使用者終止</h3>
+                    <p>您可以隨時停止使用本服務，包括：</p>
+                    <ul>
+                        <li>刪除應用程式</li>
+                        <li>在設定中清除所有用戶資料</li>
+                        <li>聯絡我們請求帳號刪除</li>
+                    </ul>
+
+                    <h3>終止後果</h3>
+                    <p>服務終止後：</p>
+                    <ul>
+                        <li>您將無法存取服務和資料</li>
+                        <li>我們可能刪除您的帳號和資料</li>
+                        <li>本協議的相關條款仍然有效</li>
+                        <li>責任限制條款繼續適用</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Privacy and Data -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    🔒 隱私與資料保護
+                </h2>
+                <div class="section-content">
+                    <h3>隱私政策</h3>
+                    <p>
+                        您的隱私對我們極其重要。請詳細閱讀我們的
+                        <a href="privacy-policy.html" style="color: var(--primary-600); text-decoration: underline;">隱私政策</a>，
+                        了解我們如何收集、使用和保護您的個人資訊。
+                    </p>
+
+                    <h3>資料安全</h3>
+                    <p>我們採用業界標準的安全措施：</p>
+                    <ul>
+                        <li>AES-256-GCM 端到端加密</li>
+                        <li>Firebase Authentication 身份驗證</li>
+                        <li>安全的資料傳輸和存儲</li>
+                        <li>定期安全審核和更新</li>
+                    </ul>
+
+                    <h3>資料使用權</h3>
+                    <p>您擁有對個人資料的完全控制權：</p>
+                    <ul>
+                        <li>查看和更新您的資料</li>
+                        <li>隨時刪除您的資料</li>
+                        <li>匯出您的資料</li>
+                        <li>限制資料處理</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Governing Law -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    ⚖️ 適用法律與爭議解決
+                </h2>
+                <div class="section-content">
+                    <h3>適用法律</h3>
+                    <p>
+                        本協議受中華民國法律管轄，任何爭議應依據中華民國法律解釋和解決。
+                        如本協議的任何條款與適用法律衝突，應以法律規定為準。
+                    </p>
+
+                    <h3>爭議解決</h3>
+                    <p>如發生爭議，我們建議依照以下程序解決：</p>
+                    <ol>
+                        <li><strong>直接溝通：</strong>首先嘗試透過客服聯絡解決問題</li>
+                        <li><strong>調解程序：</strong>如直接溝通無效，可申請第三方調解</li>
+                        <li><strong>仲裁程序：</strong>重大爭議可申請仲裁解決</li>
+                        <li><strong>司法程序：</strong>最後手段為向有管轄權的法院提起訴訟</li>
+                    </ol>
+
+                    <h3>管轄法院</h3>
+                    <p>
+                        如需訴訟解決，雙方同意以台灣台北地方法院為第一審管轄法院。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Terms Update -->
+            <div class="terms-section">
+                <h2 class="section-title">
+                    📝 條款修訂
+                </h2>
+                <div class="section-content">
+                    <h3>修訂權利</h3>
+                    <p>
+                        我們保留隨時修訂本協議的權利。修訂可能基於以下原因：
+                    </p>
+                    <ul>
+                        <li>法律法規的變更</li>
+                        <li>服務功能的更新</li>
+                        <li>商業模式的調整</li>
+                        <li>使用者回饋的採納</li>
+                    </ul>
+
+                    <h3>修訂通知</h3>
+                    <p>重大修訂將透過以下方式通知：</p>
+                    <ul>
+                        <li>應用程式內通知</li>
+                        <li>電子郵件通知</li>
+                        <li>官方網站公告</li>
+                        <li>推送通知</li>
+                    </ul>
+
+                    <h3>修訂生效</h3>
+                    <p>
+                        修訂條款將在公告後 30 天生效。
+                        繼續使用服務表示您接受修訂後的條款。
+                        如不同意修訂，請停止使用服務。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact-box">
+                <h3>📞 聯絡我們</h3>
+                <p>
+                    如果您對本協議有任何疑問或需要協助，
+                    請聯絡我們的法務團隊：
+                </p>
+                <a href="mailto:mses98034@gmail.com" class="contact-email">
+                    📧 mses98034@gmail.com
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.875rem;">
+                    我們將在 48 小時內回覆您的詢問
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">首頁</a>
+                <a href="features.html">功能特色</a>
+                <a href="security.html">安全性</a>
+                <a href="support.html">技術支援</a>
+                <a href="privacy-policy.html">隱私政策</a>
+                <a href="terms.html">服務條款</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Doctor Assistance. 誠信服務，專業保障。</p>
+            <p style="font-size: 0.875rem; margin-top: 0.5rem;">
+                本協議保護雙方權益，確保服務品質與使用者權利。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
