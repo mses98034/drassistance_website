@@ -752,7 +752,7 @@
                             <li>下載並安裝 Doctor Assistance 應用程式</li>
                             <li>註冊帳號登入</li>
                             <li>應用程式會自動初始化加密系統</li>
-                            <li>開始添加病人資料或使用語音功能建立任務</li>
+                            <li>開始添加病人資料或在iPad上使用Apple Pencil記錄查房重點</li>
                         </ol>
                     </div>
                 </div>
@@ -772,15 +772,15 @@
                 </div>
                 
                 <div class="faq-item">
-                    <h4 class="faq-question">如何使用語音功能建立任務？</h4>
+                    <h4 class="faq-question">如何使用Apple Pencil記錄查房重點？</h4>
                     <div class="faq-answer">
-                        <p>語音轉任務功能步驟：</p>
+                        <p>iPad版本支援Apple Pencil手寫功能：</p>
                         <ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                            <li>在病人詳情頁面點擊 🎤 麥克風按鈕</li>
-                            <li>允許應用程式使用麥克風權限</li>
-                            <li>清楚說出您的任務內容（支援繁體中文）</li>
-                            <li>AI 會自動分析並生成結構化任務</li>
-                            <li>確認任務內容後保存到病人檔案</li>
+                            <li>在病人詳情頁面點擊手寫記錄區域</li>
+                            <li>使用Apple Pencil直接在螢幕上書寫</li>
+                            <li>支援自然手寫輸入，無需特殊字體</li>
+                            <li>手寫內容會即時保存到病人檔案</li>
+                            <li>可配合其他功能一起使用，提升查房效率</li>
                         </ol>
                     </div>
                 </div>
@@ -792,7 +792,7 @@
                         <ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
                             <li>使用相同的帳號登入</li>
                             <li>應用程式會自動從雲端同步加密金鑰</li>
-                            <li>所有病人資料和任務會自動解密顯示</li>
+                            <li>所有病人資料、任務和手寫記錄會自動解密顯示</li>
                             <li>如遇同步問題，可在設定頁面重新同步密鑰</li>
                         </ul>
                     </div>
@@ -809,7 +809,7 @@
                 <div class="faq-item">
                     <h4 class="faq-question">我的資料有多安全？</h4>
                     <div class="faq-answer">
-                        DRAssistance 採用醫療級 AES-256-GCM 加密技術，僅對患者敏感識別資訊（姓名、病歷號、住院號）進行加密。每位使用者擁有獨立的加密金鑰，確保資料的絕對安全。
+                        Doctor Assistance 採用醫療級 AES-256-GCM 加密技術，對患者敏感識別資訊（姓名、病歷號、住院號）進行加密。每位使用者擁有獨立的加密金鑰，確保資料的絕對安全。
                     </div>
                 </div>
                 
@@ -821,16 +821,16 @@
                 </div>
                 
                 <div class="faq-item">
-                    <h4 class="faq-question">語音識別不準確怎麼辦？</h4>
+                    <h4 class="faq-question">Apple Pencil手寫功能使用上有什麼要注意的？</h4>
                     <div class="faq-answer">
-                        請確保：1) 在安靜的環境中使用；2) 清楚地說出醫療術語；3) 檢查麥克風權限是否開啟；4) 語音識別目前針對繁體中文優化，建議使用標準國語發音。
+                        請確保：1) 使用原廠或相容的Apple Pencil；2) iPad已更新到支援的系統版本；3) 手寫區域有足夠的空間；4) 手寫內容會即時同步到雲端，確保網路連線穩定。
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <h4 class="faq-question">可以離線使用嗎？</h4>
                     <div class="faq-answer">
-                        目前 Doctor Assistance 需要網路連線才能正常運作，因為語音轉任務功能使用雲端 AI 服務，資料同步也依賴 Firebase。未來版本將考慮加入離線功能。
+                        目前 Doctor Assistance 需要網路連線才能正常運作，主要用於資料同步和雲端備份。手寫記錄功能可在離線狀態下使用，但需要網路連線才能同步到其他設備。
                     </div>
                 </div>
                 
@@ -856,8 +856,8 @@
                             <li>iOS 16.6 或更高版本</li>
                             <li>目前僅支援 iPhone 和 iPad</li>
                             <li>需要麥克風和網路存取權限</li>
-                            <li>原生語音辨識 (SFSpeechRecognizer)</li>
-                            <li>支援繁體中文語音輸入</li>
+                            <li>Apple Pencil 完整支援</li>
+                            <li>手寫辨識與即時儲存</li>
                         </ul>
                     </div>
                     
