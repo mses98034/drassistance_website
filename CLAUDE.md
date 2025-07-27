@@ -55,6 +55,23 @@ The website showcases a medical assistant app with these core features:
 - Compliance with medical privacy standards
 - Technical architecture documentation
 
+## Development Commands
+
+This is a static HTML website with no build process. Development is done by directly editing HTML/CSS/JS files and opening them in a browser.
+
+### Local Development
+- Open `index.html` directly in a browser to view the site
+- Use browser developer tools for debugging and testing responsive design
+- Test across different screen sizes (mobile: 480px, tablet: 768px, desktop: 1024px+)
+
+### File Serving
+For testing features that require a local server (if needed):
+```bash
+python -m http.server 8000
+# or
+npx serve .
+```
+
 ## Development Guidelines
 
 ### File Management
@@ -96,10 +113,12 @@ The website showcases a medical assistant app with these core features:
 - Ensure all internal links remain functional
 
 ### Asset Management
-- Compress images for web delivery
-- Maintain consistent screenshot aspect ratios
+- Screenshot management follows `screenshots/README.md` guidelines
+- Toggle screenshot visibility by changing `style="display: none;"` to `style="display: block;"`
+- Remove placeholder divs when real screenshots are added
+- Expected screenshots: `patient-list.png`, `task-detail.png`, `security-screen.png`, `apple-pencil-notes.png`
+- Compress images for web delivery and maintain consistent aspect ratios
 - Use `alt` attributes for accessibility
-- Keep file sizes optimized for mobile users
 
 ## Technical Notes
 
