@@ -950,6 +950,12 @@
             .section {
                 padding: 4rem 1.5rem;
             }
+
+            /* Cross-platform section tablet */
+            .cross-platform-grid {
+                grid-template-columns: 1fr !important;
+                gap: 3rem !important;
+            }
         }
 
         /* Mobile */
@@ -1166,6 +1172,13 @@
             .highlight-text p {
                 font-size: 0.825rem;
             }
+
+            /* Cross-platform section mobile */
+            .cross-platform-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+                text-align: center;
+            }
         }
 
         /* Small Mobile */
@@ -1194,6 +1207,11 @@
             .btn {
                 font-size: 0.9rem;
                 padding: 0.875rem 1.25rem;
+            }
+
+            /* Cross-platform section small mobile */
+            .cross-platform-grid {
+                gap: 1.5rem !important;
             }
         }
 
@@ -1246,7 +1264,6 @@
             <ul class="nav-links">
                 <li><a href="index.html">首頁</a></li>
                 <li><a href="index.html#features">功能特色</a></li>
-                <li><a href="https://drassistance-f9289.web.app" target="_blank">網頁版</a></li>
                 <li><a href="security.html">安全性</a></li>
                 <li><a href="support.html">技術支援</a></li>
                 <li><a href="privacy-policy.html">隱私政策</a></li>
@@ -1491,7 +1508,7 @@
                 </p>
             </div>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem;" class="animate-on-scroll">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 4rem;" class="animate-on-scroll cross-platform-grid">
                 <!-- Web App Features -->
                 <div>
                     <div style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--secondary-50); color: var(--secondary-700); padding: 0.5rem 1rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 2rem; border: 1px solid var(--secondary-100);">
