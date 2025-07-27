@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>隱私政策與醫療免責聲明 | Doctor Assistance</title>
-    <meta name="description" content="DRAssistance 隱私政策，詳細說明個人資料保護、醫療級加密和使用者隱私權。醫療免責聲明與使用條款。">
+    <title>隱私政策與醫療免責聲明 | Doctor Assistant</title>
+    <meta name="description" content="Doctor Assistant 隱私政策，詳細說明個人資料保護、醫療級加密和使用者隱私權。醫療免責聲明與使用條款。">
     <meta name="keywords" content="隱私政策,個人資料保護,醫療免責聲明,資料安全,GDPR,HIPAA">
     
     <!-- Favicon -->
@@ -496,7 +496,7 @@
         <div class="nav-container">
             <a href="index.html" class="logo">
                 <img src="icon.png" alt="DRAssistance Icon" class="logo-icon" style="border-radius: 12px;">
-                <span>Doctor Assistance</span>
+                <span>Doctor Assistant</span>
             </a>
             
             <ul class="nav-links">
@@ -516,7 +516,7 @@
     <section class="page-header">
         <div class="header-container">
             <div class="last-updated">
-                📅 最後更新：2025年7月14日
+                📅 最後更新：2025年7月25日
             </div>
             <h1 class="page-title">隱私政策與醫療免責聲明</h1>
             <p class="page-subtitle">
@@ -539,7 +539,7 @@
                         🔒 醫療級隱私保護
                     </div>
                     <p>
-                        Doctor Assistance（以下簡稱「本應用程式」）是專為醫護人員設計的個人工作效率工具。
+                        Doctor Assistant（以下簡稱「本應用程式」）是專為醫護人員設計的個人工作效率工具。
                         我們深知醫療數據的敏感性，因此採用最高標準的隱私保護措施。
                     </p>
                     <p>
@@ -568,7 +568,9 @@
                     <ul>
                         <li><strong>個人任務：</strong>您建立的工作任務和備忘錄（明文存儲）</li>
                         <li><strong>患者資料：</strong>患者識別資訊（加密存儲）和非敏感資訊（明文存儲）</li>
-                        <li><strong>語音資料：</strong>語音轉文字處理（透過 Cloudflare Workers AI 即時處理，不存儲音頻）</li>
+                        <li><strong>主治醫師資訊：</strong>主治醫師姓名和科別資訊（加密存儲）</li>
+                        <li><strong>顏色標記分類：</strong>個人化的四色標記系統設定（明文存儲）</li>
+                        <li><strong>個人資料：</strong>醫師姓名、職稱、章號等個人資訊（明文存儲）</li>
                     </ul>
 
                     <h4>3. 技術資訊</h4>
@@ -605,12 +607,16 @@
                         <li>患者姓名</li>
                         <li>病歷號碼</li>
                         <li>住院號碼</li>
+                        <li>主治醫師姓名</li>
                     </ul>
 
                     <h4>📝 明文存儲資料</h4>
                     <ul>
                         <li>床號、年齡、性別等非敏感資訊</li>
                         <li>個人任務和備忘錄</li>
+                        <li>科別資訊</li>
+                        <li>顏色標記分類設定</li>
+                        <li>醫師個人資料（姓名、職稱、章號）</li>
                         <li>醫師個人設定</li>
                     </ul>
 
@@ -650,10 +656,7 @@
                     <p>為了提供完整的應用程式功能，我們整合了以下第三方服務：</p>
                     <ul>
                         <li><strong>Firebase (Google)：</strong>身份驗證、雲端資料庫和安全存儲</li>
-                        <li><strong>Cloudflare Workers AI：</strong>語音轉文字處理服務</li>
-                        <li><strong>語音識別服務：</strong>系統級語音轉文字功能</li>
                         <li><strong>網路連接檢測：</strong>監控應用程式網路狀態</li>
-                        <li><strong>安全存儲服務：</strong>使用 iOS Keychain 和 Android Keystore 保護敏感資料</li>
                     </ul>
                     <p>
                         這些服務提供商都遵循嚴格的資料保護標準。我們僅分享提供服務所需的最少資料，
@@ -668,16 +671,6 @@
                         <li>我們不會儲存您的醫院系統登入憑證</li>
                         <li>同步的患者資料僅用於個人工作管理</li>
                         <li>您可以選擇不使用此功能，改用手動輸入</li>
-                    </ul>
-
-                    <h3>Cloudflare Workers AI 資料處理說明</h3>
-                    <p>當您使用語音功能時：</p>
-                    <ul>
-                        <li>語音資料會即時傳送至 Cloudflare Workers AI 進行轉換</li>
-                        <li>音頻資料不會被存儲，僅用於即時文字轉換</li>
-                        <li>轉換完成後，原始音頻資料會立即銷毀</li>
-                        <li>Cloudflare 遵循嚴格的資料保護標準，符合 GDPR 要求</li>
-                        <li>您可以選擇不使用語音功能，改用手動輸入</li>
                     </ul>
                 </div>
             </div>
@@ -808,7 +801,7 @@
 
                     <h3>生效日期</h3>
                     <p>
-                        本隱私政策自 2025年7月14日 起生效。
+                        本隱私政策自 2025年7月25日 起生效。
                         繼續使用應用程式表示您接受更新後的政策條款。
                     </p>
                 </div>
@@ -842,7 +835,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Doctor Assistance. 您的隱私權，我們的承諾。</p>
+            <p>&copy; 2025 Doctor Assistant. 您的隱私權，我們的承諾。</p>
             <p style="font-size: 0.875rem; margin-top: 0.5rem;">
                 本應用程式致力於保護使用者隱私，採用最高標準的資料保護措施。
             </p>
